@@ -5,7 +5,6 @@ import SlidingImages from '@/components/home/SlidingImages';
 import ContrastCursor from '@/components/animations/cursor/contrastCursor';
 import { LetterCollision } from '@/components/animations/textAnimations/scrollText';
 import Magnetic from '@/components/animations/magnetic';
-import Hero from '@/components/home/hero';
 import Description from '@/components/home/Description/description';
 
 const slider1 = [
@@ -88,9 +87,7 @@ export default function Home() {
           </div>
         </Magnetic>
       )}
-      <div id="hero" ref={heroRef}>
-        <Hero />
-      </div>
+      <div id="hero" ref={heroRef}></div>
       <Description />
       <SlidingImages slider1={slider1} slider2={slider2} />
       <ContrastCursor isActive={false} text={'Go to project'} />

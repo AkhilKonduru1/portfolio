@@ -34,7 +34,8 @@ const animateLettersOnScroll = (containerRef: MutableRefObject<any>) => {
         invalidateOnRefresh: true,
         scrub: 0.5
       },
-      rotation: getRandomRotation()
+      rotation: getRandomRotation(),
+      opacity: 0
     });
   });
 };
