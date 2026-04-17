@@ -58,29 +58,19 @@ export default function Header() {
                 height={32}
                 width={32}
                 src="/images/logo.jpg"
-                alt="Bettinas logo"
+                alt="Akhil Konduru logo"
                 priority
               />
             </Magnetic>
             {!isMobile() && (
-              <>
-                <div className="hover:rotate-[360deg]">©</div>
-                <div className="relative flex overflow-hidden">
-                  <div className="ease-custom-cubic transition-transform duration-500 group-hover:translate-x-[-100%]">
-                    coded by
-                  </div>
-                  <div className="ease-custom-cubic px-1 transition-transform duration-500 group-hover:translate-x-[-65px]">
-                    Bettina
-                  </div>
-
-                  <div
-                    className="ease-custom-cubic
-              translate-x-full transition-transform duration-500 group-hover:translate-x-[-65px]"
-                  >
-                    Sosa
-                  </div>
+              <div className="relative flex overflow-hidden whitespace-nowrap">
+                <div className="ease-custom-cubic transition-transform duration-500 group-hover:-translate-x-full">
+                  Akhil Konduru
                 </div>
-              </>
+                <div className="ease-custom-cubic absolute left-full transition-transform duration-500 group-hover:-translate-x-full">
+                  Akhil Konduru
+                </div>
+              </div>
             )}
           </Link>
         </div>

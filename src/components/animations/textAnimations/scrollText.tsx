@@ -4,10 +4,8 @@ import { MutableRefObject, useEffect, useRef } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const creativity = 'Creativity ';
-const is = 'is ';
-const my = 'my ';
-const craft = 'craft';
+const firstName = 'Akhil';
+const lastName = 'Konduru';
 const sentence3 = 'abstract thinking is my passion';
 
 function getRandomSpeed() {
@@ -65,14 +63,10 @@ export function LetterCollision() {
     <div ref={containerRef} className="ml-8 scroll-smooth">
       <div className="-mt-28 mb-36 flex h-screen flex-col justify-end lg:mb-24">
         <div className="flex flex-wrap p-0">
-          <LetterDisplay word={creativity} />
-          <div className="w-2 xs:w-4 sm:w-10"></div>
-          <LetterDisplay word={is} />
+          <LetterDisplay word={firstName} />
         </div>
         <div className="flex flex-wrap">
-          <LetterDisplay word={my} />
-          <div className="w-2 xs:w-4 sm:w-10"></div>
-          <LetterDisplay word={craft} />
+          <LetterDisplay word={lastName} />
         </div>
       </div>
       <div className="flex flex-wrap">

@@ -18,7 +18,6 @@ export default function PreLoader() {
   const [index, setIndex] = useState(0);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
   const pathname = usePathname().split('/').pop();
-  console.log('pathname', pathname);
 
   useEffect(() => {
     setDimension({ width: window.innerWidth, height: window.innerHeight });

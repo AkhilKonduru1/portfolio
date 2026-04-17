@@ -42,7 +42,7 @@ export default function SlidingImages({ slider1, slider2 }: Props) {
                 alt="image"
                 src={`/images/${project.src}`}
                 fill
-                objectFit="contain"
+                className="object-contain"
               />
             </div>
           </div>
@@ -63,7 +63,7 @@ export default function SlidingImages({ slider1, slider2 }: Props) {
                 fill
                 alt="image"
                 src={`/images/${project.src}`}
-                objectFit="contain"
+                className="object-contain"
               />
             </div>
           </div>

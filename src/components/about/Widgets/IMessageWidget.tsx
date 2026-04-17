@@ -151,7 +151,7 @@ export default function IMessageWidget() {
       ];
 
       const body = bodyLines.join('\n');
-      const mailtoHref = `mailto:bettinasosarohl@gmail.com?subject=${encodeURIComponent(
+      const mailtoHref = `mailto:akhilkonduru23@gmail.com?subject=${encodeURIComponent(
         subject
       )}&body=${encodeURIComponent(body)}`;
 

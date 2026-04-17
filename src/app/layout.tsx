@@ -21,29 +21,29 @@ const ogImagePath = '/images/Bettina_s%20portfolio.jpeg';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Bettina's portfolio",
-    template: "%s | Bettina's portfolio"
+    default: "Akhil's portfolio",
+    template: "%s | Akhil's portfolio"
   },
   description: metaDescription,
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: siteUrl,
-    siteName: "Bettina's portfolio",
-    title: "Bettina's portfolio",
+    siteName: "Akhil's portfolio",
+    title: "Akhil's portfolio",
     description: metaDescription,
     images: [
       {
         url: ogImagePath,
         width: 1200,
         height: 630,
-        alt: "Bettina — Creative Builder, Software Engineer, Design Engineer"
+        alt: "Akhil Konduru — Creative Builder, Software Engineer, Design Engineer"
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Bettina's portfolio",
+    title: "Akhil's portfolio",
     description: metaDescription,
     images: [ogImagePath]
   },
