@@ -248,7 +248,7 @@ export default function IMessageWidget() {
                     </div>
                     <div className="space-y-1">
                       <span className=" block text-xs font-medium text-foreground/80 text-gray-300 sm:text-[13px]">
-                        Betts
+                        Akhil
                       </span>
                       <div className="rounded-2xl rounded-tl-md bg-foreground/5 px-4 py-2 text-[16px] leading-relaxed text-foreground shadow-sm sm:text-[17px]">
                         {message.text}

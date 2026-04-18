@@ -129,16 +129,38 @@ export default function About() {
                         <h2 className="mb-4 text-xl font-bold text-foreground sm:text-2xl">
                           Education & Recognition
                         </h2>
-                        <p className="mb-6 text-foreground/70">
-                          At{' '}
-                          <span className="font-semibold text-foreground">
-                            Imperial College London
-                          </span>
-                          , I studied design engineering, a unique program
-                          bridging creative thinking, design, and engineering,
-                          teaching us the full process of building a technical
-                          product from concept to launch.
-                        </p>
+                        <div className="mb-4 flex items-center gap-4">
+                          <div className="min-w-0 flex-1">
+                            <p className="mb-0 text-foreground/70">
+                              At{' '}
+                              <span className="font-semibold text-foreground">
+                                Rouse High School
+                              </span>
+                              , I study a wide range of subjects, but focus on
+                              courses that relate to business and computer
+                              science.
+                            </p>
+                            <p className="mt-2 text-sm text-foreground/60">
+                              Ranked 11/628 in my class
+                            </p>
+                          </div>
+                          <a
+                            href="https://rhs.leanderisd.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block"
+                            title="Rouse High School website"
+                          >
+                            <div className="relative h-12 w-12 flex-shrink-0 transform transition-transform duration-200 hover:scale-105">
+                              <Image
+                                src="/images/about/RouseLogo.jpg"
+                                alt="Rouse High School logo"
+                                fill
+                                className="object-contain"
+                              />
+                            </div>
+                          </a>
+                        </div>
                         <div className="flex flex-wrap gap-3">
                           <Link href="/projects/m31">
                             <RoundedButton>
