@@ -61,8 +61,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <SpeedInsights />
       <body className="overflow-scroll overflow-x-hidden">
+        <SpeedInsights />
         <Animations>
           <main>
             <ProximityPrefetcher />
