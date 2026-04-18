@@ -44,6 +44,13 @@ export async function GET() {
                 color
               }
               updatedAt
+              repositoryTopics(first: 5) {
+                nodes {
+                  topic {
+                    name
+                  }
+                }
+              }
             }
           }
         }
@@ -73,7 +80,8 @@ export async function GET() {
       language: repo.primaryLanguage
         ? { name: repo.primaryLanguage.name, color: repo.primaryLanguage.color }
         : null,
-      updatedAt: repo.updatedAt
+      updatedAt: repo.updatedAt,
+      topics: repo.repositoryTopics.nodes.map((n: any) => n.topic.name)
     }));
 
     return NextResponse.json({

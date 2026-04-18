@@ -5,62 +5,18 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
 import { useScrollDots } from '@/hooks/useScrollDots';
+import { useGitHub } from '@/hooks/useGithub';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export interface Repo {
-  name: string;
-  description: string;
-  url: string;
-  stars?: number;
-  language?: string;
-  tags: string[];
-  featured?: boolean;
-}
-
-export const repos: Repo[] = [
-  {
-    name: 'Atoll',
-    description: 'Dynamic Island for macOS.',
-    url: 'https://github.com/AkhilKonduru1/Atoll',
-    language: 'Swift',
-    tags: ['macOS', 'App', 'Swift'],
-    featured: true
-  },
-  {
-    name: 'portfolio',
-    description:
-      'This website! Built with Next.js 14, GSAP animations, and a custom design system.',
-    url: 'https://github.com/AkhilKonduru1/portfolio',
-    language: 'TypeScript',
-    tags: ['Next.js', 'GSAP', 'Design']
-  },
-  {
-    name: 'Polymarket-Trading-Bot',
-    description:
-      'The most advanced open-source Polymarket trading bot. 7 automated strategies.',
-    url: 'https://github.com/AkhilKonduru1/Polymarket-Trading-Bot',
-    language: 'TypeScript',
-    tags: ['Trading', 'Bot', 'Polymarket']
-  }
-];
-
-const languageColors: Record<string, string> = {
-  TypeScript: 'bg-blue-500',
-  JavaScript: 'bg-yellow-400',
-  Solidity: 'bg-purple-500',
-  Markdown: 'bg-foreground/50',
-  Python: 'bg-green-500'
-};
-
-/**
- * Horizontal scrolling showcase for open source projects and templates.
- * Features smooth GSAP scroll animations and interactive cards.
- */
 export default function OpenSourceShowcase() {
-  const DOT_COUNT = 3;
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const { githubData, isLoading, error } = useGitHub();
+
+  const repos = githubData?.repos ?? [];
+  const DOT_COUNT = Math.min(repos.length, 5);
+
   const { activeDot, showDots } = useScrollDots(scrollRef, {
     dotCount: DOT_COUNT,
     axis: 'x',
@@ -70,12 +26,10 @@ export default function OpenSourceShowcase() {
   useEffect(() => {
     const container = containerRef.current;
     const scrollContainer = scrollRef.current;
-    if (!container || !scrollContainer) return;
+    if (!container || !scrollContainer || repos.length === 0) return;
 
     const ctx = gsap.context(() => {
-      // Horizontal scroll animation
       const cards = scrollContainer.children;
-
       gsap.fromTo(
         cards,
         { opacity: 0, x: 60, scale: 0.95 },
@@ -96,7 +50,7 @@ export default function OpenSourceShowcase() {
     }, container);
 
     return () => ctx.revert();
-  }, []);
+  }, [repos.length]);
 
   return (
     <div
@@ -128,103 +82,138 @@ export default function OpenSourceShowcase() {
         </Link>
       </div>
 
-      {/* Horizontal scrolling cards */}
-      <div
-        ref={scrollRef}
-        className="scrollbar-hide -mx-2 flex snap-x snap-mandatory gap-3 overflow-x-auto px-2 pb-2"
-      >
-        {repos.map((repo) => (
-          <Link
-            key={repo.name}
-            href={repo.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`group relative flex min-w-[200px] max-w-[220px] shrink-0 snap-start flex-col rounded-xl border p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md ${
-              repo.featured
-                ? 'border-primary/30 bg-primary/[0.03] ring-1 ring-primary/10'
-                : 'border-foreground/10 bg-foreground/[0.02]'
-            }`}
-          >
-            {repo.featured && (
-              <span className="absolute right-3 top-3 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">
-                Featured
-              </span>
-            )}
-
-            <div className="mb-2 flex items-center gap-2">
-              <svg
-                className="h-4 w-4 text-foreground/40"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
-                />
-              </svg>
-              <span className="font-mono text-xs font-semibold text-foreground">
-                {repo.name}
-              </span>
-            </div>
-
-            <p className="mb-3 line-clamp-2 text-xs leading-relaxed text-foreground/60">
-              {repo.description}
-            </p>
-
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex flex-wrap gap-1">
-                {repo.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-foreground/10 bg-foreground/5 px-2 py-0.5 text-[10px] font-medium text-foreground/60 transition-colors hover:bg-foreground/10 hover:text-foreground"
-                  >
-                    {tag}
-                  </span>
-                ))}
+      {/* Loading skeleton */}
+      {(isLoading || error) && (
+        <div className="scrollbar-hide -mx-2 flex gap-3 overflow-x-hidden px-2 pb-2">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <div
+              key={i}
+              className="min-w-[200px] max-w-[220px] shrink-0 rounded-xl border border-foreground/10 bg-foreground/[0.02] p-4"
+            >
+              <div className="mb-2 h-3 w-24 rounded bg-foreground/10" />
+              <div className="mb-1 h-2 w-full rounded bg-foreground/5" />
+              <div className="mb-3 h-2 w-3/4 rounded bg-foreground/5" />
+              <div className="flex gap-1">
+                <div className="h-4 w-12 rounded-full bg-foreground/5" />
+                <div className="h-4 w-10 rounded-full bg-foreground/5" />
               </div>
+            </div>
+          ))}
+        </div>
+      )}
 
-              {repo.language && (
-                <div className="flex items-center gap-1">
-                  <span
-                    className={`h-2 w-2 rounded-full ${
-                      languageColors[repo.language] || 'bg-foreground/30'
-                    }`}
-                  />
-                  <span className="text-[10px] text-foreground/50">
-                    {repo.language}
+      {/* Horizontal scrolling cards */}
+      {!isLoading && !error && repos.length > 0 && (
+        <div
+          ref={scrollRef}
+          className="scrollbar-hide -mx-2 flex snap-x snap-mandatory gap-3 overflow-x-auto px-2 pb-2"
+        >
+          {repos.map((repo, index) => {
+            const isFeatured =
+              index === 0 ||
+              repo.stars === Math.max(...repos.map((r) => r.stars));
+            const tags =
+              repo.topics.length > 0
+                ? repo.topics.slice(0, 3)
+                : repo.language
+                ? [repo.language.name]
+                : [];
+
+            return (
+              <Link
+                key={repo.name}
+                href={repo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group relative flex min-w-[200px] max-w-[220px] shrink-0 snap-start flex-col rounded-xl border p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md ${
+                  isFeatured
+                    ? 'border-primary/30 bg-primary/[0.03] ring-1 ring-primary/10'
+                    : 'border-foreground/10 bg-foreground/[0.02]'
+                }`}
+              >
+                {isFeatured && (
+                  <span className="absolute right-3 top-3 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">
+                    Featured
+                  </span>
+                )}
+
+                <div className="mb-2 flex items-center gap-2">
+                  <svg
+                    className="h-4 w-4 text-foreground/40"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
+                    />
+                  </svg>
+                  <span className="font-mono text-xs font-semibold text-foreground">
+                    {repo.name}
                   </span>
                 </div>
-              )}
-            </div>
 
-            {/* Hover arrow */}
-            <div
-              className={`absolute opacity-0 transition-opacity group-hover:opacity-100 ${
-                repo.featured ? 'right-3 top-9' : 'right-3 top-3'
-              }`}
-            >
-              <svg
-                className="h-3.5 w-3.5 text-foreground/40"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </div>
-          </Link>
-        ))}
-      </div>
+                <p className="mb-3 line-clamp-2 text-xs leading-relaxed text-foreground/60">
+                  {repo.description ?? 'No description provided.'}
+                </p>
 
-      {showDots && (
+                <div className="mt-auto flex items-center justify-between gap-2">
+                  <div className="flex flex-wrap gap-1">
+                    {tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-foreground/10 bg-foreground/5 px-2 py-0.5 text-[10px] font-medium text-foreground/60 transition-colors hover:bg-foreground/10 hover:text-foreground"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {repo.language && (
+                    <div className="flex shrink-0 items-center gap-1">
+                      <span
+                        className="h-2 w-2 rounded-full"
+                        style={{
+                          backgroundColor: repo.language.color ?? '#888'
+                        }}
+                      />
+                      <span className="text-[10px] text-foreground/50">
+                        {repo.language.name}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Hover arrow */}
+                <div
+                  className={`absolute opacity-0 transition-opacity group-hover:opacity-100 ${
+                    isFeatured ? 'right-3 top-9' : 'right-3 top-3'
+                  }`}
+                >
+                  <svg
+                    className="h-3.5 w-3.5 text-foreground/40"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      )}
+
+      {showDots && repos.length > 0 && (
         <div className="mt-4 flex items-center justify-center gap-2">
           {Array.from({ length: DOT_COUNT }).map((_, index) => (
             <span

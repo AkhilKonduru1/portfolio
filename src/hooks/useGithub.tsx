@@ -19,6 +19,7 @@ export interface Repo {
   isArchived: boolean;
   language: RepoLanguage | null;
   updatedAt: string;
+  topics: string[];
 }
 
 interface GitHubData {
