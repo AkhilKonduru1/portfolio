@@ -46,16 +46,18 @@ export default function RootTemplate({ children }: PropsWithChildren) {
       </AnimatePresence>
       <div ref={container} className={clsx('relative z-10', bgColour)}>
         {children}
-        <motion.div style={{ height }} className="relative">
-          <div
-            className={clsx(
-              'absolute left-[-10%] z-10 h-[1050%] w-[120%] rounded-b-[100%] shadow-[0_60px_50px_0px_rgba(0,0,0,0.748)]',
-              bgColour
-            )}
-          ></div>
-        </motion.div>
+        {pathname !== 'contact' && (
+          <motion.div style={{ height }} className="relative">
+            <div
+              className={clsx(
+                'absolute left-[-10%] z-10 h-[1050%] w-[120%] rounded-b-[100%] shadow-[0_60px_50px_0px_rgba(0,0,0,0.748)]',
+                bgColour
+              )}
+            ></div>
+          </motion.div>
+        )}
       </div>
-      <ContactInfo />
+      {pathname !== 'contact' && <ContactInfo />}
     </main>
   );
 }
