@@ -88,7 +88,7 @@ export default function ContactInfo() {
             style={{ x }}
             className="absolute left-[calc(100%-200px)] top-[calc(100%+65px)] sm:left-[calc(100%-400px)] sm:top-[calc(100%-75px)]"
           >
-            <Link href={'/contact'} prefetch={true}>
+            <Link href={'/contact'} prefetch={false}>
               <RoundedButton
                 backgroundColor="secondary"
                 className=" absolute h-[100px] w-[100px] cursor-pointer items-center justify-center rounded-full bg-primary p-0 text-white sm:h-[200px] sm:w-[200px]"

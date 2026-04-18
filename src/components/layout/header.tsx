@@ -56,7 +56,7 @@ export default function Header() {
         <div className="flex lg:pr-56">
           <Link
             href={'/'}
-            prefetch={true}
+            prefetch={false}
             className="group z-10 flex items-center space-x-2"
             onMouseEnter={() => setNameHovered(true)}
             onMouseLeave={() => setNameHovered(false)}
@@ -101,12 +101,12 @@ export default function Header() {
             <div className="group relative z-10 flex cursor-pointer flex-col p-3">
               <div className="flex flex-col">
                 <Magnetic>
-                  <Link href={'/about'} prefetch={true}>
+                  <Link href={'/about'} prefetch={false}>
                     About
                   </Link>
                 </Magnetic>
                 <Magnetic>
-                  <Link href={'/projects'} prefetch={true}>
+                  <Link href={'/projects'} prefetch={false}>
                     Projects
                   </Link>
                 </Magnetic>
@@ -115,12 +115,12 @@ export default function Header() {
             <div className="group relative z-10 flex cursor-pointer flex-col p-3">
               <div className="flex flex-col">
                 <Magnetic>
-                  <Link href={'/web'} prefetch={true}>
+                  <Link href={'/web'} prefetch={false}>
                     Web Gallery
                   </Link>
                 </Magnetic>
                 <Magnetic>
-                  <Link href={'/blog'} prefetch={true}>
+                  <Link href={'/blog'} prefetch={false}>
                     Blog
                   </Link>
                 </Magnetic>
@@ -129,7 +129,7 @@ export default function Header() {
             <div className="group relative z-10 flex cursor-pointer flex-col p-3">
               <Magnetic>
                 <div className="flex">
-                  <Link href={'/contact'} prefetch={true}>
+                  <Link href={'/contact'} prefetch={false}>
                     Contact
                   </Link>
                   <ArrowUpRight size={18} />

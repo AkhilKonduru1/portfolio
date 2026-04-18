@@ -7,6 +7,7 @@ import Header from '@/components/layout/header';
 import { Analytics } from '@vercel/analytics/react';
 import { Toaster } from '@/components/ui/toaster';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import ProximityPrefetcher from '@/components/layout/ProximityPrefetcher';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
         url: ogImagePath,
         width: 1200,
         height: 630,
-        alt: "Akhil Konduru — Creative Builder, Software Engineer, Design Engineer"
+        alt: 'Akhil Konduru — Creative Builder, Software Engineer, Design Engineer'
       }
     ]
   },
@@ -64,6 +65,7 @@ export default function RootLayout({
       <body className="overflow-scroll overflow-x-hidden">
         <Animations>
           <main>
+            <ProximityPrefetcher />
             <Header />
             <div className="flex flex-col bg-background text-foreground">
               <main className={`flex-grow ${inter.className}`}>{children}</main>
