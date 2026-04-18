@@ -27,15 +27,18 @@ export async function GET() {
     }));
 
     const formattedTracks = playlistTracks.body.items
-      .filter((item) => item.track && item.track.type === 'track')
+      .filter((item) => {
+        const track = item.track as any;
+        return track && track.name && track.artists && track.album;
+      })
       .map((item) => {
-        const track = item.track as SpotifyApi.TrackObjectFull;
+        const track = item.track as any;
         return {
           name: track.name,
-          artist: track.artists[0].name,
+          artist: track.artists[0]?.name ?? 'Unknown',
           album: track.album.name,
-          url: track.external_urls.spotify,
-          albumArt: track.album.images[0]?.url ?? null
+          url: track.external_urls?.spotify ?? '#',
+          albumArt: track.album.images?.[0]?.url ?? null
         };
       });
 
