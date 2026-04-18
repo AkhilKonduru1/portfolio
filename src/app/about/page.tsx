@@ -52,8 +52,8 @@ export default function About() {
             >
               <div className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded-3xl">
                 <Image
-                  src="/images/profile2.jpg"
-                  alt="Bettina"
+                  src="/images/profile2.png"
+                  alt="Akhil"
                   fill
                   className="object-cover object-top"
                   priority

@@ -75,7 +75,7 @@ export default function ContactInfo() {
               <Image
                 fill
                 alt={'profile'}
-                src={`/images/profile2.jpg`}
+                src={`/images/profile2.png`}
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
