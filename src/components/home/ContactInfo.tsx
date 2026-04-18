@@ -39,7 +39,9 @@ export default function ContactInfo() {
         now.toLocaleString('en-US', { timeZone: 'America/Chicago' })
       );
       const localDate = new Date(
-        now.toLocaleString('en-US', { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone })
+        now.toLocaleString('en-US', {
+          timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+        })
       );
       const diffMs = localDate.getTime() - austinDate.getTime();
       const diffHours = Math.round(diffMs / (1000 * 60 * 60));
@@ -119,7 +121,9 @@ export default function ContactInfo() {
               <p className="relative m-0 cursor-pointer p-1">
                 {timeNow} CT (Austin)
                 {hourDiff !== null && (
-                  <span className="ml-2 text-sm text-gray-400">{diffLabel}</span>
+                  <span className="ml-2 text-sm text-gray-400">
+                    {diffLabel}
+                  </span>
                 )}
               </p>
             </span>
@@ -152,6 +156,3 @@ export default function ContactInfo() {
     </motion.div>
   );
 }
-```
-
-Now let me push this to GitHub:
