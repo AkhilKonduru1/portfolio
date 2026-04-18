@@ -41,12 +41,12 @@ export default function Contact() {
             <p className="m-0">Konduru</p>
           </div>
           <div className="flex justify-between uppercase">
-            <p className="m-0">software</p>
+            <p className="m-0">student</p>
             <p className="m-0">&</p>
           </div>
           <div className="flex justify-between uppercase">
-            <p className="m-0">design</p>
-            <p className="m-0">engineer</p>
+            <p className="m-0">creator</p>
+            <p className="m-0"></p>
           </div>
           <div className="flex justify-between uppercase">
             <p className="m-0">Ldn </p>

@@ -67,13 +67,11 @@ export default function Header() {
               />
             </Magnetic>
             {!isMobile() && (
-              <div className="relative flex overflow-hidden whitespace-nowrap">
-                <div className="ease-custom-cubic transition-transform duration-500 group-hover:-translate-x-full">
-                  Akhil Konduru
-                </div>
-                <div className="ease-custom-cubic absolute left-full transition-transform duration-500 group-hover:-translate-x-full">
-                  Akhil Konduru
-                </div>
+              <div className="flex items-baseline overflow-hidden">
+                <span>Akhil</span>
+                <span className="ease-custom-cubic inline-block max-w-0 overflow-hidden whitespace-nowrap transition-all duration-500 group-hover:max-w-[200px]">
+                  &nbsp;Konduru
+                </span>
               </div>
             )}
           </Link>
