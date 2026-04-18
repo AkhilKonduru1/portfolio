@@ -154,6 +154,19 @@ export default function ContactInfo() {
             </Magnetic>
           </div>
         </div>
+        <div className="mt-6 border-t border-gray-700 pb-6 pt-4 text-center sm:mx-[100px]">
+          <p className="text-sm text-gray-500">
+            Thanks Bettina Sosa for the og website —{' '}
+            <a
+              href="https://github.com/bettinasosa/portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline transition-colors hover:text-gray-300"
+            >
+              original repo can be found here
+            </a>
+          </p>
+        </div>
       </div>
     </motion.div>
   );
