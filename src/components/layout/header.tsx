@@ -71,22 +71,22 @@ export default function Header() {
               />
             </Magnetic>
             {!isMobile() && (
-              <div className="flex items-baseline">
+              <div className="relative flex items-baseline">
                 <span>Akhil</span>
                 <AnimatePresence>
                   {nameHovered && (
                     <motion.span
                       key="konduru"
-                      initial={{ x: 24, opacity: 0 }}
+                      initial={{ x: 20, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
-                      exit={{ x: 24, opacity: 0 }}
+                      exit={{ x: 20, opacity: 0 }}
                       transition={{
                         type: 'spring',
-                        stiffness: 350,
-                        damping: 12,
-                        mass: 0.8
+                        stiffness: 180,
+                        damping: 16,
+                        mass: 1.2
                       }}
-                      className="whitespace-nowrap"
+                      className="absolute left-full whitespace-nowrap"
                     >
                       &nbsp;Konduru
                     </motion.span>
