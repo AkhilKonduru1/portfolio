@@ -26,70 +26,78 @@ const journeyData: TimelineItem[] = [
     highlight: true
   },
   {
-    year: '2026',
+    year: 'Now',
     title: 'Competitive Programmer',
     company: 'USA Computing Olympiad',
     description:
-      'Reached Silver division in the 2026 USACO season, solving timed algorithmic problems and steadily deepening my fluency with data structures, recursion, and graph algorithms.'
+      'Reached Silver division in the 2026 USACO season, solving timed algorithmic problems and steadily deepening my fluency with data structures, recursion, and graph algorithms.',
+    highlight: true
   },
   {
-    year: '2025',
+    year: 'Now',
+    title: 'Business Competitor',
+    company: 'Rouse High School DECA',
+    description:
+      'Compete in DECA business events including BLTDM. Earned state finalist and ICDC qualifier honors as a freshman, and returned to districts as a sophomore with additional case-challenge events.',
+    highlight: true
+  },
+  {
+    year: 'Now',
     title: 'Sophomore Class Vice President',
     company: 'Rouse High School Student Council',
     description:
-      'Serve as VP of the sophomore class with a dedicated StuCo class period. Help plan and run school-wide events including trunk-or-treat, homecoming, and pep rallies, and coordinate with officers and sponsors on the year’s calendar.'
+      'Serve as VP of the sophomore class with a dedicated StuCo class period. Help plan and run school-wide events including trunk-or-treat, homecoming, and pep rallies, and coordinate with officers and sponsors on the year’s calendar.',
+    highlight: true
   },
   {
-    year: '2025',
+    year: 'Now',
     title: 'Varsity Speech & Debate',
     company: 'Rouse High School Speech & Debate',
     description:
-      'Ranked #1 in internal team standings and was promoted to varsity in the second semester. Compete across multiple speech and debate event formats, focusing on argument construction, delivery, and quick-turn rebuttal.'
+      'Ranked #1 in internal team standings and was promoted to varsity in the second semester. Compete across multiple speech and debate event formats, focusing on argument construction, delivery, and quick-turn rebuttal.',
+    highlight: true
   },
   {
-    year: '2025',
+    year: 'Now',
+    title: 'Volunteer Counselor',
+    company: 'Camp CAMP (SPED Camp)',
+    description:
+      'Served as a counselor at Camp CAMP, a summer camp for children and young adults with special needs. Supported one camper full-time across activities and routines, logging 149 documented volunteer hours over the summer.',
+    highlight: true
+  },
+  {
+    year: 'Now',
+    title: 'Member',
+    company: 'National Technical Honor Society',
+    description:
+      'Inducted for sustained academic performance in technical and career-focused coursework, with particular emphasis on computer science and business.',
+    highlight: true
+  },
+  {
+    year: 'Now',
+    title: 'Model UN Delegate',
+    company: 'Rouse High School Model UN',
+    description:
+      'Compete at AUSMUN, CTMUN, SICMUN, and the CTMUN Spring Crisis conference. Sharpening research, public speaking, and crisis-style negotiation across both general assembly and crisis committees.',
+    highlight: true
+  },
+  {
+    year: 'Now',
+    title: 'Soccer Referee',
+    company: 'U.S. Soccer Federation',
+    description:
+      'USSF-certified official for 30+ competitive youth soccer matches. Manage game flow, enforce the laws of the game, and handle on-field conflict between players, coaches, and spectators.',
+    highlight: true
+  },
+  {
+    year: '24-25',
     title: 'Marketing & Coding Fellow',
     company: 'JammyChat · VentureEd Fellowship',
     description:
       'Selected for the VentureEd summer fellowship and embedded with JammyChat across marketing and engineering. Worked on growth experiments and product surfaces in the same week, which sharpened how I move between user-facing strategy and implementation.'
   },
   {
-    year: '2025',
-    title: 'Volunteer Counselor',
-    company: 'Camp CAMP (SPED Camp)',
-    description:
-      'Served as a counselor at Camp CAMP, a summer camp for children and young adults with special needs. Supported one camper full-time across activities and routines, logging 149 documented volunteer hours over the summer.'
-  },
-  {
-    year: '2025',
-    title: 'Member',
-    company: 'National Technical Honor Society',
-    description:
-      'Inducted for sustained academic performance in technical and career-focused coursework, with particular emphasis on computer science and business.'
-  },
-  {
-    year: '2024',
-    title: 'Business Competitor',
-    company: 'Rouse High School DECA',
-    description:
-      'Compete in DECA business events including BLTDM. Earned state finalist and ICDC qualifier honors as a freshman, and returned to districts as a sophomore with additional case-challenge events.'
-  },
-  {
-    year: '2024',
-    title: 'Model UN Delegate',
-    company: 'Rouse High School Model UN',
-    description:
-      'Compete at AUSMUN, CTMUN, SICMUN, and the CTMUN Spring Crisis conference. Sharpening research, public speaking, and crisis-style negotiation across both general assembly and crisis committees.'
-  },
-  {
-    year: '2023',
-    title: 'Soccer Referee',
-    company: 'U.S. Soccer Federation',
-    description:
-      'USSF-certified official for 30+ competitive youth soccer matches. Manage game flow, enforce the laws of the game, and handle on-field conflict between players, coaches, and spectators.'
-  },
-  {
-    year: '2023',
+    year: '23-24',
     title: 'Team Captain',
     company: 'Lonestar SC Alpha U15',
     description:

@@ -60,8 +60,8 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="overflow-scroll overflow-x-hidden">
+    <html lang="en" suppressHydrationWarning>
+      <body className="overflow-scroll overflow-x-hidden" suppressHydrationWarning>
         <SpeedInsights />
         <Animations>
           <main>
