@@ -82,7 +82,7 @@ export default function TextReveal({
             scrollTrigger: {
               trigger: container,
               start: 'top 88%',
-              toggleActions: 'play none none reverse'
+              once: true
             }
           }
         );

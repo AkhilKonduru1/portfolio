@@ -109,8 +109,7 @@ export default function AnimatedSection({
         scrollTrigger: {
           trigger: el,
           start: 'top 88%',
-          end: 'top 20%',
-          toggleActions: 'play none none reverse'
+          once: true
         }
       });
     },

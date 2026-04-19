@@ -127,7 +127,7 @@ export default function JourneyTimeline() {
             scrollTrigger: {
               trigger: item,
               start: 'top 85%',
-              toggleActions: 'play none none reverse'
+              once: true
             },
             delay: i * 0.05
           }
